@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>.</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Nuvlo</h1>
+  <nav>
+    <button id="navFeedBtn">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="6" rx="1.5" fill="currentColor" opacity="0.8"></rect>
+        <rect x="3" y="10" width="18" height="4" rx="1" fill="currentColor" opacity="0.6"></rect>
+        <rect x="3" y="16" width="12" height="2.5" rx="1" fill="currentColor" opacity="0.4"></rect>
+        </svg>
+    </button>
+    <button id="navMentionsBtn">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2z" stroke="currentColor"></path>
+        <path d="M18 16v-5a6 6 0 0 0-12 0v5l-1.5 2v1h15v-1l-1.5-2z" stroke="currentColor"></path>
+        </svg>
+    </button>
+    <button id="navProfileBtn">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Profile circle -->
+        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" ></circle>
+        <!-- Posts lines -->
+        <rect x="4" y="14" width="16" height="2" rx="1" fill="currentColor" ></rect>
+        <rect x="4" y="18" width="12" height="2" rx="1" fill="currentColor" ></rect>
+        </svg>
+
+    </button>
+    <button id="navSignInBtn">
+      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cloud shape for "Nuvlo" style -->
+        
+        <path d="M16 24c0-6 5-10 10-10 4 0 7 2 9 5 4 0 7 3 7 7s-3 7-7 7H15c-4 0-7-3-7-7s3-7 8-7" 
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        
+        <!-- Arrow (sign in) -->
+        <path d="M20 18l6 6-6 6" stroke='currentColor' stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        <line x1="26" y1="24" x2="12" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
+        </svg>
+
+    </button>
+    <button id="navSignUpBtn">
+      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- Cloud shape for Nuvlo style -->
+        <path d="M16 24c0-6 5-10 10-10 4 0 7 2 9 5 4 0 7 3 7 7s-3 7-7 7H15c-4 0-7-3-7-7s3-7 8-7" 
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        
+        <!-- Plus icon -->
+        <line x1="24" y1="19" x2="24" y2="29" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="19" y1="24" x2="29" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
+        </svg>
+     </button>
+     </nav>
+  </header>
+  
+  <main>
+    
+  <!-- Feed Page -->
+  <section id="feedPage">
+    
+    <div class="filter-bar" id="filtered">
+      <button data-filter="all" class="all nav">
+        <svg width="30" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor"></rect>
+          <path d="M14 14H21V21H14V14Z" stroke="currentColor" stroke-width="2"></path>
+          <circle cx="17.5" cy="17.5" r="1.5" fill="currentColor"></circle>
+          </svg>
+      </button>
+      <button data-filter="video">
+        <svg width="30" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"></rect>
+          <polygon points="10,8 16,12 10,16" fill="currentColor"></polygon>
+          </svg>
+      </button>
+      <button data-filter="image">
+        <svg width="30" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"></rect>
+          <circle cx="8" cy="8" r="1.5" fill="currentColor"></circle>
+          <polyline points="3 20 8 13 13 18 21 11" stroke="currentColor" stroke-width="2" fill="none"></polyline>
+        </svg>
+      </button>
+      <button data-filter="audio">
+        <svg width="30" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="8" width="5" height="8" fill="currentColor"></rect>
+        <polygon points="8,8 14,4 14,20 8,16" fill="currentColor"></polygon>
+        <path d="M16 9c1 1.5 1 4 0 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"></path>
+        <path d="M18 7c2 3 2 7 0 10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"></path>
+        </svg>
+      </button>
+      <button data-filter="text">
+        <svg width="30" height="20" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="7" y="18" font-family="Arial, sans-serif" font-size="20" fill="currentColor" font-weight="bold">T</text>
+        <text x="15" y="18" font-family="Arial, sans-serif" font-size="14" fill="currentColor">t</text>
+        </svg>
+      </button>
+      <span id="hashtagFilter" style="color: var(--primary); cursor:pointer; display: none;"></span>
+    </div>
+    
+    <div id="postsContainer"></div>
+    <button style="position: fixed; background: #009C94;
+     color: #fff;border: 4px solid #02524D; color: white; height: 80px; width: 20%; border-radius: 20%; z-index: 1000; box-shadow: 0 3px 5px grey; transition: background-color 0.2s, transform 0.2s; cursor: grab; touch-action: none; font-size: 36px; backdrop-filter: blur(5px);" id="navUploadBtn">+</button>
+  </section>
+  
+  <section id="renderFriends">
+    <div id="friendsContainer">
+      <h2 id="tittleCon" style="position: absolute;">Friends</h2>
+    </div>
+    <div id="friendPostsContainer"></div>
+  </section>
+
+  <!-- Upload Page -->
+  <section id="uploadPage" class="hidden">
+    <h2 class="uplHeader">Upload Post</h2>
+    <button id="seter">Settings</button>
+    <div style="display: flex; justify-content: space-between; text-align: center;">
+    <p id="postCount"></p>
+    <p id="likeCount"></p>
+    <p id="commentCount"></p>
+    </div>
+    
+    <form id="uploadForm">
+      <label for="uploadType">Select Type:</label>
+      <select id="uploadType" required style="outline: none;">
+        <option value="">--Choose--</option>
+        <option value="video">Video</option>
+        <option value="image">Image</option>
+        <option value="audio">Audio</option>
+        <option value="text">Text</option>
+      </select>
+      <div id="mediaInputWrapper" style="margin-top:10px;"></div>
+      <label for="postText">Text Content:</label>
+      <textarea id="postText"  placeholder="What's on your mind? #hashtagIt"></textarea>
+      <div id="uploadPreview" class="upload-preview"></div>
+      <button type="submit" class="btn-primary">Post</button>
+    </form>
+    
+  </section>
+  
+  <!---Mention Page--->
+  <section id="mentionsPage" class="hidden">
+    <button style="position: fixed; top: 50%; left: 50%;" id="meU" >Updates</button>
+  </section>
+
+  <!-- Profile Page -->
+  <section id="profilePage" class="hidden">
+    <button id="navfriends" class="MyFriends">
+      <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- First person -->
+        <circle cx="8" cy="8" r="3" fill="currentColor"></circle>
+        
+        <!-- Second person -->
+        <circle cx="16" cy="8" r="3" fill="currentColor" opacity="0.6"></circle>
+        
+        <!-- Connection (friendship) -->
+        <path d="M8 11C5.33 11 4 13 4 14.5V16H12V14.5C12 13 10.67 11 8 11Z" fill="currentColor"></path>
+        <path d="M16 11C13.33 11 12 13 12 14.5V16H20V14.5C20 13 18.67 11 16 11Z" fill="currentColor" opacity="0.6"></path>
+        
+        <!-- Spark or link icon to imply 'added' -->
+        <path d="M12 4L12.6 5.2L14 5.4L13 6.5L13.2 8L12 7.3L10.8 8L11 6.5L10 5.4L11.4 5.2L12 4Z" fill="currentColor" opacity="0.7"></path>
+        </svg>
+
+    </button>
+    <input type="email" class="searchMe" id="emailSearchInput" style="height: 30px; width: 90%; border: none; border-radius: 25px;text-align: left; margin-left: 25px; margin-top: 30px;" placeholder="Search username..." autocapitalize="off">
+
+    <div id="profileUserHeader" style="font-weight: bold; text-decoration: underline;"></div>
+    <br>
+    <div id="profilePosts"></div>
+    
+  </section>
+
+  <!-- Sign In Page -->
+  <section id="signInPage" class="hidden">
+    <h2 style="text-align: center;">Sign In</h2>
+    
+    <form id="signInForm">
+      <label for="signInEmail"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="feather feather-user">
+        <path  d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+        </svg></label>
+      <input type="email" id="signInEmail" style="outline: none; height: 25px;" placeholder="Username" required /><br>
+      <label for="signInPassword"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg></label>
+      <input type="password" id="signInPassword" placeholder="Password" style="outline: none; height: 25px;" required />
+      <button style="width: 60%; margin-left: 70px; height: 40px; border-radius: 10px;" type="submit" class="btn-primary">Sign In</button>
+      <p><a href="#" id="forgotPasswordLink" style="text-decoration: none; font-weight: bold;">Forgot password</a></p>
+      <button type="button" id="showRecentBtn" style="font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 5px; color: grey;">
+        Logged Accounts
+        <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 16L6 10H18L12 16Z" fill="grey"></path>
+          </svg>
+          </button>
+    </form>
+    
+  </section>
+  
+  <!-- Sign Up Page -->
+  <section id="signUpPage" class="hidden">
+    <h2 class="UpH" style="text-align: center;">Sign Up</h2>
+    <svg class="symbol" width="90" height="90" viewBox="0 0 100 100" 
+     xmlns="http://www.w3.org/2000/svg" fill="none">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--tertiary)" ></stop>
+          <stop offset="100%" stop-color="var(--sector)" ></stop>
+          </linearGradient>
+          </defs>
+          <path d="M20 80
+           C20 40, 25 20, 35 90
+           C40 65, 55 40, 15 10"
+        stroke="url(#grad1)"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+        </svg>
+        
+    <form id="signUpForm">
+      <label for="signUpEmail">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="feather feather-user">
+        <path  d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+        </svg></label>
+      <input class="som" type="email" id="signUpEmail" placeholder="Register Username" style="outline: none" required /><br>
+      <label for="signUpPassword"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg></label>
+      <input type="password"id="signUpPassword" min="6" max="8" placeholder="Register Password" style="outline: none" required/>
+      <input id="TsCs" type="checkbox" required>
+      <label for="TsCs" class="labelTsCs" style="font-weight: bold;">Accept <a style="color: blue; text-decoration: none;" href="#" id="termsBtn">terms & conditions</a></label>
+      <button type="button" id="redeemBtn" style="position: absolute; margin-top: 55%; left: 5%; background: var(--primary); border: none; height: 40px; border-radius: 20px; color: white">Redeem ATP</button><br>
+      
+      Your ATP: <span id="generatedPasscode" style="font-weight: bold;">----</span><br>
+      
+      <label class="confirmCode">
+        <input type="checkbox" id="passcodeConfirmed" disabled />
+        I have noted my ATP
+        </label><br>
+        <label for="age" style="position: absolute; margin-top: 19%;">Age:</label>
+        <input type="date" id="age" name="age" min="15" max="100" required placeholder="27" style="width: 28%; height: 30px; margin-top: 80px; position: absolute; margin-left: 40px; outline: none; border-radius: 10px;"/>
+        <select id="gender" name="gender" required style="margin-top: 10%; margin-left: 200px; margin-top: 75px; width: 40%; position: absolute; outline: none; font-weight: bold;">
+          
+          <option value="" disabled selected>GENDER</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="preferNotToSay">Prefer not to say</option>
+          
+      </select>
+      <button type="submit" id="signUpBtn" class="signU" disabled>Sign Up</button>
+      <button id="togglePasswordBtn" style="background:none; border:none; cursor:pointer; position: absolute; margin-top: -5.9rem; margin-left: -10px;" type="button">
+        <span id="eyeOpen" style="display:none;">
+          
+    <!-- Open eye SVG -->
+    <svg width="38" height="40" viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg" stroke-width="3">
+      
+    <!-- Outer Eye Shape -->
+    <ellipse cx="40" cy="25" rx="35" ry="15" fill="white" stroke="#555555" stroke-width="3"></ellipse>
+    
+    <!-- Orange Eye with Animation -->
+    <g>
+      <circle r="12" cy="25" fill="#FF7B06" stroke="black" stroke-width="2">
+      <animate attributeName="cx" values="36;44;36" dur="2s" repeatCount="indefinite"></animate>
+      </circle>
+
+    <!-- Pupil moves with the orange eye -->
+    <circle r="6" cy="25" fill="black">
+      <animate attributeName="cx" values="36;44;36" dur="2s" repeatCount="indefinite"></animate>
+    </circle>
+
+    <!-- Highlight -->
+    <circle r="3" cy="25" fill="grey">
+      <animate attributeName="cx" values="36;44;36" dur="2s" repeatCount="indefinite"></animate>
+    </circle>
+    </g>
+  </svg>
+
+  </span>
+  <span id="eyeClosed">
+    <!-- Closed eye SVG -->
+    <svg width="40" height="50" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg" stroke="gray">
+    
+    <!-- Closed eyelid -->
+    <path d="M10 25 Q50 35 90 25" stroke="gray" stroke-width="3" fill="none" ></path>
+    
+    <!-- Eyelashes -->
+    <line x1="20" y1="25" x2="18" y2="18" stroke="gray" stroke-width="2"></line>
+    <line x1="30" y1="26" x2="28" y2="19" stroke="gray" stroke-width="2"></line>
+    <line x1="40" y1="27" x2="38" y2="20" stroke="gray" stroke-width="2"></line>
+    <line x1="50" y1="27" x2="50" y2="20" stroke="gray" stroke-width="2"></line>
+    <line x1="60" y1="27" x2="62" y2="20" stroke="gray" stroke-width="2"></line>
+    <line x1="70" y1="26" x2="72" y2="19" stroke="gray" stroke-width="2"></line>
+    <line x1="80" y1="25" x2="82" y2="18" stroke="gray" stroke-width="2"></line>
+  </svg>
+  </span>
+  </button>
+
+  </form>
+  
+  </section>
+  
+  <section id="welkom">
+    <h2>Welcome</h2>
+    <svg class="symbols" width="90" height="90" viewBox="0 0 100 100" 
+     xmlns="http://www.w3.org/2000/svg" fill="none">
+      <defs>
+        <linearGradient id="gra1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--tertiary)" ></stop>
+          <stop offset="100%" stop-color="var(--sector)" ></stop>
+          </linearGradient>
+          </defs>
+          <path d="M20 80
+           C20 40, 25 20, 35 90
+           C40 65, 55 40, 15 10"
+        stroke="url(#gra1)"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+        </svg>
+    <button id="nextToIt">Next</button>
+  </section>
+  
+  <!---Settings Page--->
+  <section id="settings" class="hidden">
+    <button style="font-weight: bold; font-size: 20px;" onclick="showUploadPage()">
+      
+      <svg width="28" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="gray">
+        <path d="M15 18l-6-6 6-6" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <rect stroke="gray" x="10" y="11" width="18" height="1" rx="2" ry="2"></rect>
+        </svg>
+    </button>
+    <h2 style="text-align: left; margin-bottom: 20px; position: absolute; top: 8%; left: 65px">Settings</h2>
+    <br><br>
+    <p id="username" style="margin-right: 4px; font-family: Georgia, 'Times New Roman', Times, serif;"></p>
+    
+    <br><br>
+    
+    <div class="box">
+      <div style="border: 2px dashed gray; height: 80px; width: 95%; overflow: auto; padding: 10px; border-radius: 10px;">
+       <div id="blockedUsersList" style="font-weight: bold;">No blocked Users</div>
+      </div>
+    </div>
+    
+    <br>
+    <div class="box">
+      <a id="privacyBtn" style="color: grey; text-decoration: underline; font-weight: bold; font-size: 19px;">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield-check" style="vertical-align: middle;">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="M9 12l2 2 4-4"></path>
+        </svg>
+        Privacy Policy</a>
+    </div>
+      <br>
+    <div class="box">
+      <a href="#" id="termsBtn2" style="color: grey; font-weight: bold; font-size: 19px;">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="vertical-align: middle;">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+        <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+
+      Terms and Conditions</a>
+    </div>
+      <br>
+    <div class="box">
+      <a href="#" id="forgotPasswordLink" style="text-decoration: none; font-weight: bold; color: gray; font-size: 19px; text-decoration: underline;" onclick="showReminder()">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        <circle cx="12" cy="16" r="1"></circle>
+        <path d="M12 13c0-1 2-1 2-3s-2-2-2-2-2 0-2 2"></path>
+        </svg>
+      Forgot Password</a>
+    </div>
+    <br>
+    <div class="box">
+    <label class="theme-toggle" title="Toggle Theme">
+      <input type="checkbox" id="themeToggle" />
+      <span class="slider"></span>
+      <b style="margin-left: 60px; white-space: nowrap;">Theme</b>
+    </label>
+    </div>
+    <br>
+    <div class="box">
+    <button id="deleteAccountBtn" style="color: cadetblue; font-size: 19px; font-weight: bold; line-height: 40px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"   stroke="currentColor" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
+        <polyline points="3 6 5 6 21 6"></polyline>
+        <path d="M19 6L17.5 20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+        <path d="M10 11v6"></path>
+        <path d="M14 11v6"></path>
+        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
+        </svg>
+      Delete Account</button>
+    </div>
+    <br>
+    <div class="box" style="border: 4px solid gray; text-align: center;">
+        <button id="signOutBtn" style=" font-size: 18px; text-align: center;" onclick="signOut()">Log Out
+        </button>
+    </div>
+  </section>
+  
+  <!-------Privacy Page----->
+  <section id="privacy"class="hidden">
+    <h2>Privacy Policy for Nuvlo</h2>
+    <p style="font-family: 'Arial Mono', 'Courier New', monospace;">
+      <b>Effective Date:</b> 25 June 2025  <br>
+      <b>Last Updated:</b> 27 August 2025 
+      <br><br>
+      Nuvlo is committed to protecting your privacy and ensuring that your personal information is collected and used properly, lawfully, and transparently. This Privacy Policy explains how we handle your information when you use our mobile application ("Nuvlo").
+      <br><br><br>
+      <b>---1. Information We Collect---</b>
+      <br>
+      Nuvlo prioritizes privacy and minimal data collection. We do *not* collect your name, phone number, email address, or physical address. Instead, we generate a unique identifier based on.
+      <br>
+      
+      - Device information(model, Ip Address, screen size, time zone)<br>
+      - IP address (for limited use only)<br>
+      - App activity (posts, likes, reports)<br>
+      - Chosen username and password (encrypted)<br>
+      - Reset PIN (generated for you)
+      <br><br><br>
+      
+      <b>---2. How We Use Your Information---</b>
+      <br>
+      We use the limited data we collect for the following:
+      <br>
+      - Account authentication<br>
+      - Content moderation<br>
+      - Restricting abuse (e.g., spam, multiple account creation)<br>
+      - Improving app performance and content discovery<br>
+      - Investigating reports of harmful or illegal content<br>
+      - Ensuring security and device-based account integrity
+      <br><br><br>
+      
+      <b>---3. Your Privacy Rights---</b>
+      <br>
+      Depending on your location, you may have the right to:
+      <br>
+      - Access, correct, or delete your data<br>
+      - Restrict or object to certain processing<br>
+      - Lodge a complaint with a data protection authority<br><br>
+      We honor these rights where applicable under:<br>
+      - <b>POPIA</b> (Protection of Personal Information Act – South Africa)<br>
+      - <b>GDPR</b> (General Data Protection Regulation – EU)<br>
+      - <b>CCPA</b> (California Consumer Privacy Act – USA)
+      <br><br>
+      
+      --You can request account deletion directly from the settings.
+      <br><br><br><br>
+      
+      <b>---4. Data Storage and Security---</b>
+      <br>
+      
+      Your data is securely stored in our datsbase, a trusted cloud infrastructure.  
+      Security measures include:
+      - Encrypted password and reset PIN storage
+      - Device-level authentication
+      
+      We do *not* sell or share user data with third parties.
+      
+      <br><br><br><br>
+      
+      <b>---5. User Reporting & Harmful Content---</b>
+      <br>
+      Users can report harmful content. While Nuvlo operates without real-time moderation, we are committed to:
+      <br>
+      - Reviewing reports regularly<br>
+      - Banning devices linked to violations (max 3 accounts per device)<br>
+      - Maintaining a safe, respectful environment<br>
+      We are not liable for content shared by users but will act promptly when notified of violations.
+      <br><br><br><br>
+      
+      <b>---6. Children’s Privacy---</b>
+      
+      Nuvlo is not intended for children under the age of 13. We do not knowingly collect personal data from children. If we become aware of such data, it will be deleted immediately.
+      <br>
+      
+      <br><br><br><br>
+      <b>---7. Changes to This Policy---</b>
+      <br>
+      We may update this Privacy Policy from time to time. Users will be notified through the app. Continued use of Nuvlo after changes means you accept the revised policy.
+      
+      <br>
+      
+      <br><br><br><br>
+      <b>---8. Contact Us---</b>
+      <br>
+      If you have questions or concerns about this policy, you can contact us via:
+      <br><br><b>
+        Email: apwarldprd57@gmail.com
+        Whatsapp: 074 612 2901</b>
+        <br></p>
+  </section>
+  
+  <!-----Terms and Conditions--->
+  <section id="terms" class="hidden">
+    
+    <h2>Terms and Conditions of Use</h2>
+    <p style="font-family: 'Arial Mono', 'Courier New', monospace;">
+      <b>Effective Date: 25 June 2025</b><br>
+      <b>Last Updated: 27 August 2025</b>
+      
+      <br><br>
+      Welcome to Nuvlo, a privacy-first media sharing platform. By using Nuvlo, you agree to be bound by these Terms and Conditions. Please read them carefully. If you do not agree with any part, do not use the app.
+      <br><br>
+      
+      <b>---1.Acceptance of Terms---</b>
+      <br>
+      By creating an account, posting content, or browsing Nuvlo, you confirm that:
+      - You are at least 13 years old
+      - You agree to comply with these Terms
+      - You understand your access may be revoked for violating these Terms
+      <br><br>
+      <br>
+      
+      <br><b>---2. Account Registration and Security---</b>
+      <br>
+      - You may create an account using only a <b>username and password</b>. No email or phone number is required.<br>
+      - You are allowed <b>up to 3 accounts</b> per device*. These are linked using device information (such as model, time zone, screen size, IP).<br>
+      - A <b>reset PIN</b> will be generated for password recovery. Keep it secure.
+      - If all 3 accounts on a device are banned, the device may be permanently blocked from creating new accounts on Nuvlo only.
+      
+      <br><br><br>
+      <b>---3. User Conduct---</b>
+      <br>
+      You agree *not to*:<br>
+      - Post content that is illegal, violent, pornographic, hateful, threatening, or misleading<br>
+      - Impersonate others or create false accounts<br>
+      - Use automated tools, bots, or scripts to abuse the app<br>
+      - Attempt to reverse-engineer or tamper with the app or its security
+      
+      <br><br>
+      We reserve the right to *remove content or ban users or devices* at any time for violations of these rules.
+      <br>
+      
+      <br><br>
+      <b>---4. Content Ownership and Use---</b>
+      <br>
+      - You retain ownership of content you post (text, image, video, audio).<br>
+      - You grant Nuvlo a *non-exclusive, royalty-free license* to display your content within the app.<br>
+      - Content *cannot be shared externally* (e.g., links or dowloads) to protect privacy.<br>
+      - Users may *repost content within Nuvlo*, but original ownership is respected.
+      <br>
+      
+      <br><br>
+      <b>---5. Privacy and Data Usage---</b>
+      <br>
+      Please read our full *Privacy Policy* to understand how we collect and use data. In summary:<br>
+      - We do *not* collect names, emails, phone numbers, or personal identifiers.<br>
+      - We store only necessary info (device details, posts, username, password, reset pin).<br>
+      - All data is secured using our database and protected by access rules.
+      <br>
+    
+      
+      <br><br>
+      <b>---6. Availability and Modifications---</b>
+      <br>
+      - Nuvlo is available *as-is*. We do not guarantee uninterrupted service.<br>
+      - We may update or modify features at any time without prior notice.<br>
+      - Bugs or errors may exist; please report them using the in-app Contact form.
+      <br>
+      
+      <br><br>
+      <b>---7. Termination---</b>
+      <br>
+      We may suspend or terminate your account or block your device if:<br>
+      - You violate these Terms<br>
+      - You are reported repeatedly for harmful or abusive content<br>
+      - You attempt to bypass device or account restrictions<br>---
+      
+      <br><br>
+      <b>---8. Liability Disclaimer---</b>
+      <br>
+      Nuvlo is *not liable* for:<br>
+      - Content posted by users<br>
+      - Loss of account due to forgotten reset PIN<br>
+      - Device bans due to misuse<br>
+      - Damages arising from use or inability to use the app<br>
+      
+      We are not responsible for *external links* or third-party services.
+      <br>
+      
+      <br><br>
+      <b>---9. Intellectual Property---</b>
+      <br>
+      - Nuvlo and its logo, UI, code, and design are the property of the developer.<br>
+      - You may not copy, sell, or reuse any part of the app without permission.
+      <br>
+      
+      <br><br>
+      <b>10. Governing Law</b>
+      <br>
+      These Terms are governed by the laws of RSA, USA. Any disputes shall be settled in that jurisdiction.
+      <br>
+      ---
+      <br><br>
+      <b>---11. Changes to Terms---</b>
+      <br>
+      We may update these Terms. Updates will be announced in the app. Your continued use of Nuvlo indicates acceptance of the updated Terms.
+      <br>---
+      
+      <br><br>
+      <b>12. Contact</b>
+      <br>
+      If you have questions, feedback, or concerns, contact us via:
+      
+      <br><br>
+      <b>
+        Email: apwarldprd57@gmail.com 
+        Whatsapp 074 612 2901
+        </b>---
+
+  </section>
+  
+  <!-------Reminder Page--->
+  <section id="reminderPage" class="hidden">
+  <h2 style="text-align: center;">Forgot Password</h2>
+  <br>
+  <form id="reminderForm">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" fill="none" style="vertical-align: middle;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+    <input type="email" id="reminderEmail" placeholder="Username" style="outline: none;" required /><br>
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-hash">
+  <text x="2" y="18" font-size="18" font-family="Arial, sans-serif" fill="currentColor">123</text>
+</svg>
+    <input type='number' id="reminderPasscode" style="margin-left: 20px; height: 30px; border-radius: 10px; outline: none;" placeholder="ATP Code" maxlength="4" required /><br><br>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+    <input type="password" id="reminderNewPassword" style="outline: none; margin-left: 30px;" placeholder="New Password" required /><br><br>
+
+    <button type="submit" style="background: deepskyblue; width: 40%; height: 40px; border-radius: 10px; color: white;">Set New Password</button>
+  </form>
+</section>
+
+</main>
+
+<!------Dynamic Page---->
+<div id="dynamicPage"></div>
+
+<!-- Comment Modal -->
+<div id="commentModal" style="display: none;"class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="commentModalTitle">
+  <div class="modal">
+    <div style="background: gray; width: 10%; height:5px; position: absolute; justify-self: center; border-radius: 10px;"></div>
+    <h3 id="commentModalTitle" style="text-align: center;">Comment</h3>
+    <form id="commentForm">
+      <textarea style="width: 85%; height: 55px; outline: none; border-radius: 10px; font-family: 'Times New Roman', Times, serif;  border: 1px solid white; font-weight: bold;" id="commentText"  required></textarea>
+      <button type="submit" style="margin-top: 0.2rem; background: var(--primary); fill: gray; position: absolute; width: 11%; border-radius: 50%; margin-left: 9px;"class="btn-primary" id="comWrite"><svg width="25" height="25" viewBox="0 0 24 24" fill="var(--bg-light)" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" ></path>
+        </svg></button>
+      <button type="button" id="commentCancelBtn" style="margin-top: -3.5rem; left: 0; position: absolute; font-size: 25px; color: gray">×</button>
+    </form>
+  </div>
+</div>
+
+<div id="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;">
+  <div class="mode" style="padding:20px;border-radius:8px;min-wid pith:200px;text-align:center;">
+    <p id="modal-text" style="font-weight: bold; font-size: 18px;"></p>
+    <button id="modal-ok" style="height: 10px"></button>
+  </div>
+</div>
+
+<div class="confirm-overlay" id="confirmOverlay" style="display:none;">
+  <div class="confirm-box" style="z-index: 10009;">
+    <div class="confirm-message" id="confirmMessage" style="color: black;"></div>
+    <div class="confirm-buttons">
+      <button class="btn-yes" id="confirmYes">Yes</button>
+      <button class="btn-no" id="confirmNo">No</button>
+    </div>
+  </div>
+</div>
+
+<div id="userModal">
+  <button id="closeUserModal" style="float: left; color: white;" onclick="closeUserModal()">Close</button>
+  <h3 id="modalUserEmail" class="user-emails" data-userId="userId" style="text-align: center; cursir: pointer;"></h3>
+  <p style="font-weight: bold;">Posts: <span id="modalPostCount">0</span></p>
+
+</div>
+<script src="main.js"></script>
+</body>
+</html>
