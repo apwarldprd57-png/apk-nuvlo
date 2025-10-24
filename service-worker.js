@@ -3,7 +3,7 @@ const assets = [
   '/',
   '/index.html',
   '/style.css',
-  '/app.js',
+  '/main.js',
   // Add any other files you want cached
 ];
 
