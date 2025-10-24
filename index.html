@@ -700,6 +700,13 @@
   <p style="font-weight: bold;">Posts: <span id="modalPostCount">0</span></p>
 
 </div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+  
 <script src="main.js"></script>
 </body>
 </html>
