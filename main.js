@@ -1,4 +1,5 @@
 
+{
 {// Data stores - In-memory arrays for demonstration (replace with real DB)
 const postsContainer = document.getElementById('postsContainer');
 let blockedUsers = [];
@@ -2146,7 +2147,7 @@ function openCommentModal(isReply = false) {
   commentText.focus();
   document.getElementById('commentModalTitle').textContent = isReply ? 'Reply' : 'Comment';
   document.getElementById('commentModal').style.display = 'block';
-  document.getElementById('commentText').placeholder = isReply? 'Add reply...': 'Add comment...';
+  document.getElementById('commentText').placeholder = isReply? `Reply as ${currentUser.email}`: `Comment as ${currentUser.email}`;
 }
 
 commentCancelBtn.addEventListener('click', () => {
@@ -2383,6 +2384,21 @@ passcodeConfirmed.addEventListener('change', () => {
   signUpBtn.disabled =!passcodeConfirmed.checked;
 });
 
+function copyPasscode() {
+  const passcode = document.getElementById('generatedPasscode');
+  if (!passcode.textContent) return;
+
+  const tempInput = document.createElement('input');
+  tempInput.value = passcode.textContent;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+
+  showModal('Passcode copied to clipboard!');
+}
+
+
 document.getElementById('signUpForm').addEventListener('submit', e => {
   e.preventDefault();
   
@@ -2412,10 +2428,7 @@ document.getElementById('signUpForm').addEventListener('submit', e => {
     return;
   }
   
-  if (!/^(?=.*[A-Z])(?=.*d)[A-Za-zd]{6,8}$/.test(password)) {
-    showModal('Password must be 6-8 characters, contain at least one uppercase letter and one digit, and no special characters.');
-    return;
-  }
+
   
   if (age < 13 || age > 100) {
     showModal('You must be between 13 and 100 years old to sign up.');
@@ -2715,4 +2728,5 @@ function signOut() {
 }
 
 
+}
 }
