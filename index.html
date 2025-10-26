@@ -6,23 +6,8 @@
 <title>.</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    :root {
-    --bg-dark: #F5F7FA;
-    --sp-light: #FFFFFF;
-    --sp-dark: #0E0F11;
-    --bg-light: #0E0F11;
-    --text-dark: #000;
-    --text-light: #eee;
-    --primary: #2979ff;
-    --secondary: #FF0D0D;
-    --tertiary: #EC0C3E;
-    --sector: #0CBDEC;
-    --dongwe: #EC0C3E9C;
-    --xhosa: #0CBDECBA;
-  }
-</style>
 <body>
+
 <header>
   <h1>Nuvlo</h1>
   <nav>
@@ -50,7 +35,7 @@
 
     </button>
     <button id="navSignInBtn">
-      <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Cloud shape for "Nuvlo" style -->
         
         <path d="M16 24c0-6 5-10 10-10 4 0 7 2 9 5 4 0 7 3 7 7s-3 7-7 7H15c-4 0-7-3-7-7s3-7 8-7" 
@@ -63,7 +48,7 @@
 
     </button>
     <button id="navSignUpBtn">
-      <svg width="45" height="45" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         
         <!-- Cloud shape for Nuvlo style -->
         <path d="M16 24c0-6 5-10 10-10 4 0 7 2 9 5 4 0 7 3 7 7s-3 7-7 7H15c-4 0-7-3-7-7s3-7 8-7" 
@@ -145,7 +130,7 @@
     </div>
     
     <form id="uploadForm">
-      <label class="upLab" for="uploadType">Select Type:</label>
+      <label for="uploadType">Select Type:</label>
       <select id="uploadType" required style="outline: none;">
         <option value="">--Choose--</option>
         <option value="video">Video</option>
@@ -154,10 +139,10 @@
         <option value="text">Text</option>
       </select>
       <div id="mediaInputWrapper" style="margin-top:10px;"></div>
-      <label class="upLab" for="postText">Text Content:</label>
+      <label for="postText">Text Content:</label>
       <textarea id="postText"  placeholder="What's on your mind? #hashtagIt"></textarea>
       <div id="uploadPreview" class="upload-preview"></div>
-      <button type="submit" class="btn-primary2">Post</button>
+      <button type="submit" class="btn-primary">Post</button>
     </form>
     
   </section>
@@ -196,51 +181,27 @@
 
   <!-- Sign In Page -->
   <section id="signInPage" class="hidden">
-    <svg class="symbol2" width="150" height="150" viewBox="0 0 100 100" 
-     xmlns="http://www.w3.org/2000/svg" fill="none">
-      <defs>
-        <linearGradient id="look2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="var(--tertiary)" ></stop>
-          <stop offset="100%" stop-color="var(--sector)" ></stop>
-          </linearGradient>
-          </defs>
-          <path d="M20 80
-           C20 40, 25 20, 35 90
-           C40 65, 55 40, 15 10"
-        stroke="url(#look2)"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"></path>
-        </svg>
+    <h2 style="text-align: center;">Sign In</h2>
+    
     <form id="signInForm">
-     <div class="emailGroup">
-       <input type="email" id="signInEmail" style="outline: none; height: 35px; padding: 12px 10px;" placeholder="" required />
-       <label class="labEmail" for="signInEmail">Username</label>
-     </div>
-     <div class="passGroup">
-      <input type="password" id="signInPassword" placeholder=" " style="outline: none; height: 35px;" required />
-      <label class="labPass" for="signInPassword">Password</label>
-     </div>
-      <button style="width:80%; margin-left: 20px; height: 60px; border-radius: 10px;" type="submit" class="btn-primary">Sign In</button>
-      <p><a href="#" class="forgotPasswordLink" id="forgotPasswordLink" style="text-decoration: none; font-weight: bold;">Forgot password</a></p>
+      <label for="signInEmail"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="feather feather-user">
+        <path  d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+        </svg></label>
+      <input type="email" id="signInEmail" style="outline: none; height: 25px;" placeholder="Username" required /><br>
+      <label for="signInPassword"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg></label>
+      <input type="password" id="signInPassword" placeholder="Password" style="outline: none; height: 25px;" required />
+      <button style="width: 60%; margin-left: 70px; height: 40px; border-radius: 10px;" type="submit" class="btn-primary">Sign In</button>
+      <p><a href="#" id="forgotPasswordLink" style="text-decoration: none; font-weight: bold;">Forgot password</a></p>
       <button type="button" id="showRecentBtn" style="font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 5px; color: grey;">
-        Quick Login
+        Logged Accounts
         <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 16L6 10H18L12 16Z" fill="grey"></path>
           </svg>
           </button>
-        <div class="ch">
-          <svg width="100" height="30" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 80 
-               C15 20, 40 20, 40 60 
-               L40 20 
-               L60 60 
-               C70 90, 90 20, 90 80" 
-              fill="none" stroke="gray" stroke-width="8" stroke-linecap="round"/>
-            <text x="110" y="70" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="48" fill="gray" font-weight="600" letter-spacing="4"> WARLD
-            </text>
-            </svg>
-        </div>
     </form>
     
   </section>
@@ -251,7 +212,7 @@
     <svg class="symbol" width="90" height="90" viewBox="0 0 100 100" 
      xmlns="http://www.w3.org/2000/svg" fill="none">
       <defs>
-        <linearGradient id="gra1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="var(--tertiary)" ></stop>
           <stop offset="100%" stop-color="var(--sector)" ></stop>
           </linearGradient>
@@ -259,7 +220,7 @@
           <path d="M20 80
            C20 40, 25 20, 35 90
            C40 65, 55 40, 15 10"
-        stroke="url(#gra1)"
+        stroke="url(#grad1)"
         stroke-width="6"
         stroke-linecap="round"
         stroke-linejoin="round"></path>
@@ -279,19 +240,17 @@
       <input type="password"id="signUpPassword" min="6" max="8" placeholder="Register Password" style="outline: none" required/>
       <input id="TsCs" type="checkbox" required>
       <label for="TsCs" class="labelTsCs" style="font-weight: bold;">Accept <a style="color: blue; text-decoration: none;" href="#" id="termsBtn">terms & conditions</a></label>
-      <button type="button" id="redeemBtn" >Redeem ATP</button><br>
+      <button type="button" id="redeemBtn" style="position: absolute; margin-top: 55%; left: 5%; background: var(--primary); border: none; height: 40px; border-radius: 20px; color: white">Redeem ATP</button><br>
       
-Your ATP: <span id="generatedPasscode" style="font-weight: bold;" onclick="copyPasscode()">----</span>
-
-<br><b class="warning">⚠️Please  click and save this code you won't see it again. You'll need it to reset your password.</b><br>
+      Your ATP: <span id="generatedPasscode" style="font-weight: bold;">----</span><br>
       
       <label class="confirmCode">
-        <input type="checkbox" id="passcodeConfirmed" disabled /><label class="confirmLabel">
-        I have noted my ATP</label>
+        <input type="checkbox" id="passcodeConfirmed" disabled />
+        I have noted my ATP
         </label><br>
-        <label for="age" style="position: absolute; margin-top: 26%;">Age: </label>
-        <input type="date" id="age" name="age" min="15" max="100" required placeholder="27" style="width: 28%; height: 30px; margin-top: 25%; position: absolute; margin-left: 42px; outline: none; border-radius: 10px;"/>
-        <select id="gender" name="gender" required style="margin-top: 10%; margin-left: 200px; margin-top: 24.5%; width: 40%; position: absolute; outline: none; font-weight: bold;">
+        <label for="age" style="position: absolute; margin-top: 19%;">Age:</label>
+        <input type="date" id="age" name="age" min="15" max="100" required placeholder="27" style="width: 28%; height: 30px; margin-top: 80px; position: absolute; margin-left: 40px; outline: none; border-radius: 10px;"/>
+        <select id="gender" name="gender" required style="margin-top: 10%; margin-left: 200px; margin-top: 75px; width: 40%; position: absolute; outline: none; font-weight: bold;">
           
           <option value="" disabled selected>GENDER</option>
           <option value="male">Male</option>
@@ -301,7 +260,7 @@ Your ATP: <span id="generatedPasscode" style="font-weight: bold;" onclick="copyP
           
       </select>
       <button type="submit" id="signUpBtn" class="signU" disabled>Sign Up</button>
-      <button id="togglePasswordBtn" type="button">
+      <button id="togglePasswordBtn" style="background:none; border:none; cursor:pointer; position: absolute; margin-top: -5.9rem; margin-left: -10px;" type="button">
         <span id="eyeOpen" style="display:none;">
           
     <!-- Open eye SVG -->
@@ -741,6 +700,13 @@ Your ATP: <span id="generatedPasscode" style="font-weight: bold;" onclick="copyP
   <p style="font-weight: bold;">Posts: <span id="modalPostCount">0</span></p>
 
 </div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+  
 <script src="main.js"></script>
 </body>
 </html>
