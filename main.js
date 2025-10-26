@@ -36,6 +36,8 @@ const svgReport = `
     <circle cx="12" cy="12" r="10"></circle>
     <line x1="12" y1="8" x2="12" y2="12"></line><circle cx="12" cy="16" r="0.5" fill="black"></circle>`;
 
+
+
 function updateOfficialStatus() {
   const likesCountPerUser = {};
   const postsCountPerUser = {};
@@ -1642,7 +1644,75 @@ progressContainer.onclick = (e) => {
   audio.currentTime = newTime;
 };
 }
+else if(post.type === 'camera') {
+  const container = document.createElement('div');
+  container.style.position = 'relative';
+  container.style.display = 'inline-block';
 
+  const cameraPreview = document.createElement('video');
+  cameraPreview.autoplay = true;
+  cameraPreview.playsInline = true;
+  cameraPreview.style.width = '100%';
+  cameraPreview.style.borderRadius = '10px';
+  container.appendChild(cameraPreview);
+
+  const switchBtn = document.createElement('button');
+  switchBtn.textContent = 'Switch 🔄';
+  switchBtn.style.position = 'absolute';
+  switchBtn.style.top = '10px';
+  switchBtn.style.right = '10px';
+  container.appendChild(switchBtn);
+
+  const captureBtn = document.createElement('button');
+  captureBtn.textContent = 'Capture 📸';
+  captureBtn.style.position = 'absolute';
+  captureBtn.style.bottom = '10px';
+  captureBtn.style.left = '50%';
+  captureBtn.style.transform = 'translateX(-50%)';
+  container.appendChild(captureBtn);
+
+  const canvas = document.createElement('canvas');
+  canvas.style.display = 'none';
+  container.appendChild(canvas);
+
+  el.appendChild(container);
+
+  let currentStream;
+  let usingFrontCamera = true;
+
+  async function startCamera() {
+    try {
+      if (currentStream) currentStream.getTracks().forEach(track => track.stop());
+      const constraints = {
+        video: { facingMode: usingFrontCamera ? 'user' : 'environment' },
+        audio: false
+      };
+      currentStream = await navigator.mediaDevices.getUserMedia(constraints);
+      cameraPreview.srcObject = currentStream;
+      await cameraPreview.play();
+    } catch (err) {
+      console.error('Camera error:', err);
+      showModal('Cannot access camera. Make sure permissions are allowed and you are on HTTPS.');
+    }
+  }
+
+  startCamera();
+
+  switchBtn.onclick = async () => {
+    usingFrontCamera = !usingFrontCamera;
+    await startCamera();
+  };
+
+  captureBtn.onclick = () => {
+    canvas.width = cameraPreview.videoWidth;
+    canvas.height = cameraPreview.videoHeight;
+    canvas.getContext('2d').drawImage(cameraPreview, 0, 0);
+    const dataUrl = canvas.toDataURL('image/png');
+    post.mediaData = dataUrl;
+    post.type = 'image'; // convert camera capture to normal image post
+    renderPosts();
+  };
+}
 else if (post.type === 'video') {
   container = document.createElement('div');
   container.style.position = 'relative';
