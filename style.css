@@ -360,7 +360,9 @@
      border-width: 3px;" 
    }
 
-  
+  label {
+    font-weight: bold;
+  }
   
   a{
     color: blue;
@@ -429,31 +431,9 @@
     border: none;
     color: white;
     padding: 0.5rem 1rem;
-    position: absolute;
     border-radius: 4px;
     font-weight: bold;
-    margin-left: -3%;
-    width: 100%;
-    margin-top: 140%;
-  }
-  
-  .btn-primary2 {
-    background: #009C94;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    position: absolute;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-left: 2%;
-    font-size: 17px;
-    width: 50%;
-    height: 40px;
-    margin-top: 1%;
-  }
-  
-  .upLab{
-    font-weight: bold;
+    margin-top: 0.5rem;
   }
   
   .btn-primary:hover {
@@ -630,13 +610,6 @@
      top: 0;
    }
    
-   .symbol2{
-     position: absolute;
-     margin-left: 36%;
-     margin-top: 2%;
-     
-   }
-   
    #username{
      position: absolute;
      z-index: 1000;
@@ -724,44 +697,37 @@
    
    #TsCs{
      position: absolute;
-     margin-top: 35%;
+     margin-top: 22%;
      margin-left: -80%;
      border: 2px solid #0087FF;
    }
    
    .labelTsCs{
      position: absolute;
-     margin-top: 34%;
+     margin-top: 21%;
      margin-left: -75%;
    }
    
    .confirmCode{
      position: absolute;
-     margin-top: 20%;
+     margin-top: 55px;
    }
    
    .signU:disabled{
-    background: transparent;
-    color: transparent;
+     background: transparent;
+     color: transparent;
      cursor: none;
-     border: none;
    }
    
    .signU{
-     width: 85%;
-     position: absolute;
-     height: 50px;
-     background: inherit;
-     font-size: 18px;
-     font-weight: bold;
-     border: 2px solid #848484;
-     border-radius: 30px;
-     margin-top: 50%;
-     margin-left: 20px;
-     color: inherit;
+     width: 40%;
+     height: 40px;
+     background: var(--secondary);
+     margin-top: 130px;
+     margin-left: 200px;
+     color: white;
      cursor: pointer;
    }
-   
    
    .play-btn {
      margin-top: 8px;
@@ -906,133 +872,3 @@
     margin-top: -3%;
     left: 80%;
   }
-
-
-.warning{
-  color: red;
-  font-size: 12px;
-  position: absolute;
-  margin-top: 5%;
-}
-
-#redeemBtn{
-  position: absolute;
-  margin-top: 67%;
-  left: 5%;
-  background: var(--secondary);
-  border: none;
-  height: 40px;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  box-shadow: inset 0 -10px 10px #410016;
-}
-
-#togglePasswordBtn{
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  margin-top: -29%;
-  margin-left: 83%;
-}
-
-.emailGroup {
-  position: absolute;
-  margin-top: 70%;
-  width: 87%;
-  margin-left: -5%;
-}
-
-.passGroup {
-  position: absolute;
-  margin-top: 90%;
-  width: 87%;
-  margin-left: -5%;
-}
-
-#signInEmail{
-  width: 100%;
-  padding: 12px 10px;
-  font-size: 16px;
-  border: 2px solid #848484;
-  background: inherit;
-  border-radius: 20px;
-  width: 100%;
-  outline: none;
-  color: inherit;
-}
-
-#signInPassword{
-  width: 100%;
-  padding: 12px 10px;
-  font-size: 16px;
-  border: 2px solid #848484;
-  background: none;
-  border-radius: 20px;
-  width: 100%;
-  outline: none;
-  color: #434343;
-}
-
-.labEmail {
-  position: absolute;
-  left: 9%;
-  top: 23px;
-  color: inherit;
-  background: inherit;
-  padding: 0 4px;
-  transition: 0.2s;
-  pointer-events: none;
-}
-
-.labPass {
-  position: absolute;
-  left: 9%;
-  top: 23px;
-  color: inherit;
-  background: inherit;
-  padding: 0 4px;
-  transition: 0.2s;
-  pointer-events: none;
-}
-
-#signInEmail:focus + .labEmail, #signInEmail:not(:placeholder-shown) + .labEmail {
-  top: -6px;
-  font-size: 14px;
-  left: 10%;
-  z-index: 1;
-  color: inherit;
-  background: inherit;
-  backdrop-filter: blur(2px);
-  font-weight: bold;
-}
-
-
-#signInPassword:focus + .labPass, #signInPassword:not(:placeholder-shown) + .labPass {
-  top: -6px;
-  font-size: 14px;
-  left: 10%;
-  z-index: 1;
-  color: inherit;
-  background: inherit;
-  backdrop-filter: blur(2px);
-  font-weight: bold;
-}
-
-#showRecentBtn{
-  position: absolute;
-  margin-top: 108%;
-}
-
-.forgotPasswordLink{
-  position: absolute;
-  margin-top: 108%;
-  margin-left: 60%;
-}
-
-.ch{
-  position: absolute;
-  margin-top: 160%;
-  margin-left: 32%;
-}
